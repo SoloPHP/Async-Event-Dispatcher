@@ -6,6 +6,20 @@
 
 Async event dispatcher with pluggable adapters.
 
+## Features
+
+- Async dispatch via `$dispatcher->dispatch()`
+- Pluggable adapters: `InMemoryAdapter`, `SoloTaskQueueAdapter`
+- Worker to consume and execute events
+- Reference-based listener registry with priorities
+- Customizable serialization via `SerializerInterface`
+- Framework-agnostic, minimal setup
+
+## Requirements
+
+- PHP ^8.1
+- Optional: `solophp/task-queue` ^2.1 (for `SoloTaskQueueAdapter`)
+
 ## Install
 
 ```bash
@@ -34,7 +48,7 @@ $publisher->dispatch(new UserRegistered('john'));
 $worker->run();
 ```
 
-## Usage (Solo Task Queue)
+## Usage (Solo Task Queue Adapter)
 
 ```php
 use Solo\AsyncEventDispatcher\Adapter\SoloTaskQueueAdapter;
@@ -69,7 +83,3 @@ composer cs-fix
 ## License
 
 This project is open-sourced under the [MIT license](./LICENSE).
-
-
-
-
