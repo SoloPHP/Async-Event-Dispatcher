@@ -53,8 +53,23 @@ $publisher->dispatch(new UserRegistered('john'));
 $worker->run();
 ```
 
+## Testing
+
+```bash
+# Run tests
+composer test
+
+# Run code sniffer
+composer cs
+
+# Fix code style issues
+composer cs-fix
+```
+
 ## License
 
-MIT
+This project is open-sourced under the [MIT license](./LICENSE).
+
+
 
 
