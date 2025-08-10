@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/github/license/solophp/async-event-dispatcher.svg?style=flat-square)](LICENSE)
 [![PHP Version](https://img.shields.io/packagist/php-v/solophp/async-event-dispatcher.svg?style=flat-square)](https://packagist.org/packages/solophp/async-event-dispatcher)
 
-Async event dispatcher for Solo: dispatcher, worker, registry, serializer, and pluggable adapters (in-memory, Solo Task Queue).
+Async event dispatcher with pluggable adapters.
 
 ## Install
 
