@@ -1,0 +1,38 @@
+{
+  "name": "solophp/async-event-dispatcher",
+  "description": "Async event dispatcher with pluggable adapters",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.1"
+  },
+  "suggest": {
+    "solophp/task-queue": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Solo\\AsyncEventDispatcher\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    },
+    "classmap": [
+      "tests/Support"
+    ]
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "squizlabs/php_codesniffer": "^3.7"
+  },
+  "scripts": {
+    "test": "phpunit --testdox",
+    "cs": "phpcs --standard=PSR12 src/ tests/",
+    "cs-fix": "phpcbf --standard=PSR12 src/ tests/"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
+
+
