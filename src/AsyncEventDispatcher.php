@@ -1,21 +1,45 @@
 <?php
 
+/**
+ * Async Event Dispatcher
+ *
+ * PHP version 8
+ */
+
 declare(strict_types=1);
 
 namespace Solo\AsyncEventDispatcher;
 
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Solo\AsyncEventDispatcher\Adapter\AsyncAdapterInterface;
 
-final class AsyncEventDispatcher
+/**
+ * Event dispatcher that queues listeners for asynchronous execution
+ */
+final readonly class AsyncEventDispatcher implements EventDispatcherInterface
 {
+    /**
+     * Constructor
+     *
+     * @param ReferenceListenerRegistry $registry   Listener registry
+     * @param AsyncAdapterInterface     $adapter    Queue adapter
+     * @param SerializerInterface       $serializer Event serializer
+     */
     public function __construct(
-        private readonly ReferenceListenerRegistry $registry,
-        private readonly AsyncAdapterInterface $adapter,
-        private readonly SerializerInterface $serializer = new NativeSerializer()
+        private ReferenceListenerRegistry $registry,
+        private AsyncAdapterInterface $adapter,
+        private SerializerInterface $serializer = new NativeSerializer()
     ) {
     }
 
-    public function dispatch(object $event): void
+    /**
+     * Dispatch event asynchronously
+     *
+     * @param object $event Event to dispatch
+     *
+     * @return object
+     */
+    public function dispatch(object $event): object
     {
         $payload = $this->serializer->serialize($event);
 
@@ -29,7 +53,7 @@ final class AsyncEventDispatcher
 
             $this->adapter->enqueue($envelope);
         }
+
+        return $event;
     }
 }
-
-
