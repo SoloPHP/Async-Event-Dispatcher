@@ -6,7 +6,7 @@
   "require": {
     "php": "^8.2",
     "psr/event-dispatcher": "^1.0",
-    "solophp/contracts": "dev-main@dev"
+    "solophp/contracts": "^1.0"
   },
   "suggest": {
     "solophp/job-queue": "^1.0",
